@@ -31,3 +31,16 @@ eureka:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL}
 gateway:
   logger: ${GATEWAY_LOGER_URL}
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - env
+          - info
+          - liquibase
+          - refresh
+  endpoint:
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}

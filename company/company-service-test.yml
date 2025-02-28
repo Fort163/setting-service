@@ -5,13 +5,13 @@ spring:
     oauth2:
       resourceserver:
         opaquetoken:
-          client-id: ${SECURITY_CLIENT_ID:"{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e"}
-          client-secret: ${SECURITY_CLIENT_SECRET:"{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e"}
+          client-id: ${SECURITY_CLIENT_ID:'{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'}
+          client-secret: ${SECURITY_CLIENT_SECRET:'{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'}
           custom-auth: ${SECURITY_CUSTOM_AUTH:false}
   datasource:
     url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/test-company}
-    username: ${DATASOURCE_USERNAME:"{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277"}
-    password: ${DATASOURCE_PASSWORD:"{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277"}
+    username: ${DATASOURCE_USERNAME:'{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'}
+    password: ${DATASOURCE_PASSWORD:'{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'}
   jpa:
     show-sql: ${JPA_SHOW_SQL:false}
     database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}

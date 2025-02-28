@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT:8096}
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: ${SECURITY_CLIENT_ID:test-client}
+          client-secret: ${SECURITY_CLIENT_SECRET:test-client}
+          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/part-time}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+  jpa:
+    show-sql: ${JPA_SHOW_SQL:false}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+  liquibase:
+    change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
+gateway:
+  logger: ${GATEWAY_LOGER_URL:true}

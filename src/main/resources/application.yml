@@ -18,3 +18,19 @@ spring:
             - part-time
 server:
   port: 8001
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - env
+          - info
+          - liquibase
+          - refresh
+  endpoint:
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
+encrypt:
+  key: ${ENCRYPT_KEY:ALWAYS:oSZIJGszRWPku7PO12ABeStr8W5dIm9vHIevDCdW9K6hyFc0Lr6CBO5TrfbiuRuEaYXpIAeIlJ7DbK7fUjdhQi1cJpxuNQ8GpV62mo1ViCZKjE8dYVViaz6ysaRsB3s9B7JEYYwwKhXoX2PggMMaETX5dsERbxmjDYub8O1MDnBXRp0e8AyccM4i7bN7Gb4j7RSOO9Vk9RzopxFfqHnMm5xVH4kVAEsSKx7BUB7uRIXLRFULEZnw92NN5hTiuXLKgeVyl6iYzJ16KFrYlLrGKt3vniChaxpHQTxSzyLfoplDGFrUSwC7d1ymyVga1CYK}
+

@@ -2,11 +2,19 @@ spring:
   application:
     name: setting-service
   profiles:
-    active: native
+    active: native, git
   cloud:
     config:
       server:
         native:
           search-locations: classpath:/configs
+        git:
+          uri: ${GIT_URL:https://github.com/Fort163/setting-service.git}
+          default-label: master
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+          search-paths:
+            - company
+            - part-time
 server:
   port: 8001

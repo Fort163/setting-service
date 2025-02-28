@@ -10,8 +10,8 @@ spring:
           custom-auth: ${SECURITY_CUSTOM_AUTH:true}
   datasource:
     url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/company}
-    username: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
-    password: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
+    username: ${DATASOURCE_USERNAME:-'{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'}
+    password: ${DATASOURCE_PASSWORD:-'{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'}
   jpa:
     show-sql: ${JPA_SHOW_SQL:false}
     database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}

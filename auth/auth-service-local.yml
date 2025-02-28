@@ -1,0 +1,87 @@
+server:
+  port: ${SERVER_PORT:8090}
+spring:
+  mvc:
+    static-path-pattern: ${MVC_STATIC_PATH_PATTERN:/resources/**}
+  main:
+    allow-bean-definition-overriding: ${ALLOW_BEAN_DEFINITION_OVERRIDING:true}
+  application:
+    name: ${APPLICATION_NAME:auth-service}
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
+          client-secret: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
+          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
+      client:
+        registration:
+          yandex:
+            client-name: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_NAME:yandex}
+            clientId: '{cipher}f157c1af003aec1101c17b2bd47b99417963ba0462eeebe44e67a713aaa543354ae71c032803f866b6317e40a734d891da93dd468ee75a30f05921a911684a52'
+            clientSecret: '{cipher}f9c241a8422ac7a98cfcb089fdb8ac4bda1db8e97cd4cbd8ae8b2474cebdd0b58f23583377baedba742ceb966166a1ec3d9c4231df7b7d789db86bff524d1b5f'
+            redirectUri: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_REDIRECT_URI:http://localhost:8090/login/oauth2/code/yandex}
+            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_AUTH_METHOD:client_secret_basic}
+            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_AUTH_GRANT_TYPE:authorization_code}
+          vk:
+            client-name: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_NAME:vk}
+            clientId: '{cipher}f0e4d2203cedf2c91be17a27bb3df1d64f0321688148c15ac0b860da87f47e34'
+            clientSecret: '{cipher}c69a53ab999ed8efd6265c489e5f142341907d07817b6fd7ef9aa3c988d3845365cac48cfdfbb55d7543ffbb46174dde'
+            redirectUri: ${OAUTH2_CLIENT_REGISTRATION_VK_REDIRECT_URI:http://localhost:8090/login/oauth2/code/vk}
+            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_AUTH_METHOD:client_secret_post}
+            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_VK_AUTH_GRANT_TYPE:authorization_code}
+          google:
+            client-name: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_NAME:google}
+            clientId: '{cipher}09f2e969dffec16643fd3d5db94bcb80821d53a16eccb7550eb29341114a15f1d89b2c0ed1506ee51335a12cf8ef750f7798f5687174900c1e4321337e7cf70964eb5e372cbd5f09f42b3adac7477cc15da7c0ee0b29ee04b642e16a44b8b221'
+            clientSecret: '{cipher}ca6062431c17bc62ed5eb48c19499a37a11d361952dd2634156bf8854309e56a5bb119e0f8f67ef03762ed333cc3f3061a6c4a19598d7500835880f86d2cf68e'
+            redirectUri: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_REDIRECT_URI:http://localhost:8090/login/oauth2/code/google}
+            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_AUTH_METHOD:client_secret_basic}
+            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_AUTH_GRANT_TYPE:authorization_code}
+            scope:
+              - openid
+              - email
+              - profile
+              - https://www.googleapis.com/auth/user.phonenumbers.read
+              - https://www.googleapis.com/auth/user.gender.read
+              - https://www.googleapis.com/auth/user.birthday.read
+        provider:
+          yandex:
+            authorization-uri: ${CLIENT_PROVIDER_YANDEX_AUTH_URI:https://oauth.yandex.ru/authorize}
+            token-uri: ${CLIENT_PROVIDER_YANDEX_TOKEN_URI:https://oauth.yandex.ru/token}
+            user-info-uri: ${CLIENT_PROVIDER_YANDEX_USER_INFO_URI:https://login.yandex.ru/info}
+            user-name-attribute: ${CLIENT_PROVIDER_YANDEX_USER_NAME_ATTRIBUTE:login}
+          vk:
+            authorization-uri: ${CLIENT_PROVIDER_VK_AUTH_URI:https://oauth.vk.com/authorize?revoke=1}
+            token-uri: ${CLIENT_PROVIDER_VK_TOKEN_URI:https://oauth.vk.com/access_token}
+            user-info-uri: ${CLIENT_PROVIDER_VK_USER_INFO_URI:https://api.vk.com/method/users.get?{user_id}&v=5.95&fields=id,domain,photo_id,verified,sex,bdate,city,country,contacts,has_mobile,photo_max,home_town,has_photo&display=popup&lang=ru&access_token=xxxxx}
+            user-name-attribute: ${CLIENT_PROVIDER_VK_USER_NAME_ATTRIBUTE:id}
+          google:
+            authorization-uri: ${CLIENT_PROVIDER_GOOGLE_AUTH_URI:https://accounts.google.com/o/oauth2/v2/auth}
+            token-uri: ${CLIENT_PROVIDER_GOOGLE_TOKEN_URI:https://www.googleapis.com/oauth2/v4/token}
+            user-info-uri: ${CLIENT_PROVIDER_GOOGLE_USER_INFO_URI:https://www.googleapis.com/oauth2/v3/userinfo}
+            user-name-attribute: ${CLIENT_PROVIDER_GOOGLE_USER_NAME_ATTRIBUTE:sub}
+      authorization-server:
+        issuer-url: ${OAUTH2_AUTH_SERVER_ISSUER_URL:http://localhost:8090}
+        introspection-endpoint: ${OAUTH2_AUTH_SERVER_INTROSPECTION_ENDPOINT:/oauth2/token-info}
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/authSso}
+    username: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
+    password: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_HIBERNATE_DDL_AUTO:none}
+    show-sql: ${JPA_SHOW_SQL:false}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+  liquibase:
+    change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
+logging:
+  level:
+    org:
+      springframework:
+        security: ${LOGGING_LEVEL_ORG_SPRING_SECURITY:DEBUG}

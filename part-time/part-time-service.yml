@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT}
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: ${SECURITY_CLIENT_ID}
+          client-secret: ${SECURITY_CLIENT_SECRET}
+          custom-auth: ${SECURITY_CUSTOM_AUTH}
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+  jpa:
+    show-sql: ${JPA_SHOW_SQL}
+    database-platform: ${JPA_DATABASE_PLATFORM}
+  liquibase:
+    change-log: ${LIQUIBASE_CHANGE_LOG}
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL}
+gateway:
+  logger: ${GATEWAY_LOGER_URL}

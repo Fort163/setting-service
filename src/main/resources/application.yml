@@ -18,6 +18,7 @@ spring:
             - part-time
             - auth
             - qr-b2b
+            - eureka
 server:
   port: 8001
 management:

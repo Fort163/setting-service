@@ -17,6 +17,7 @@ spring:
             - company
             - part-time
             - auth
+            - qr-b2b
 server:
   port: 8001
 management:

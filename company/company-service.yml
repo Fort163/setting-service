@@ -1,8 +1,6 @@
 server:
   port: ${SERVER_PORT}
 spring:
-  application:
-    name: company-service
   security:
     oauth2:
       resourceserver:

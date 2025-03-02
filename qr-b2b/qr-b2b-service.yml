@@ -1,8 +1,6 @@
 server:
   port: ${SERVER_PORT}
 spring:
-  application:
-    name: qr-b2b-service
   security:
     oauth2:
       resourceserver:

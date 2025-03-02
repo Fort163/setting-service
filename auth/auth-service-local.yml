@@ -5,8 +5,6 @@ spring:
     static-path-pattern: ${MVC_STATIC_PATH_PATTERN:/resources/**}
   main:
     allow-bean-definition-overriding: ${ALLOW_BEAN_DEFINITION_OVERRIDING:true}
-  application:
-    name: ${APPLICATION_NAME:auth-service}
   security:
     oauth2:
       resourceserver:

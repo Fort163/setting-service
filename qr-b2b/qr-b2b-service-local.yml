@@ -25,3 +25,9 @@ eureka:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
 gateway:
   logger: true
+management:
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}

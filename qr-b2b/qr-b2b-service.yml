@@ -40,5 +40,7 @@ management:
           - liquibase
           - refresh
   endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES}
     env:
-      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
+      show-values: ${ACTUATOR_ENV_VALUES}

@@ -83,3 +83,25 @@ logging:
     org:
       springframework:
         security: ${LOGGING_LEVEL_ORG_SPRING_SECURITY:DEBUG}
+management:
+  health:
+    circuitbreakers:
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
+    service:
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
+  instances:
+    database:
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}

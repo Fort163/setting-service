@@ -30,6 +30,9 @@ eureka:
 gateway:
   logger: ${GATEWAY_LOGER_URL}
 management:
+  health:
+    circuitbreakers:
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH}
   endpoints:
     web:
       exposure:
@@ -44,3 +47,22 @@ management:
       show-details: ${ACTUATOR_HEALTH_VALUES}
     env:
       show-values: ${ACTUATOR_ENV_VALUES}
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH}
+    service:
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+  instances:
+    companyService:
+      baseConfig: service
+    userService:
+      baseConfig: service
+    notificationService:
+      baseConfig: service
+    database:
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}

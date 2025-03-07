@@ -23,8 +23,6 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
-gateway:
-  logger: ${GATEWAY_LOGER_URL:true}
 management:
   health:
     circuitbreakers:
@@ -47,3 +45,7 @@ resilience4j.circuitbreaker:
       failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
       slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
       minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
+gateway:
+  logger: ${GATEWAY_LOGER_URL:true}
+  locale:
+    enabled: ${GATEWAY_LOCALE_ENABLED:true}

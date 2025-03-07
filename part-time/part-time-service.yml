@@ -25,3 +25,5 @@ eureka:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL}
 gateway:
   logger: ${GATEWAY_LOGER_URL}
+  locale:
+    enabled: ${GATEWAY_LOCALE_ENABLED}

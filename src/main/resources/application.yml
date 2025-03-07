@@ -19,6 +19,7 @@ spring:
             - auth
             - qr-b2b
             - eureka
+            - gateway
 server:
   port: 8001
 management:

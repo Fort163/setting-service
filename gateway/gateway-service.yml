@@ -1,0 +1,53 @@
+server:
+  port: ${SERVER_PORT}
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: ${SECURITY_CLIENT_ID}
+          client-secret: ${SECURITY_CLIENT_SECRET}
+          custom-auth: ${SECURITY_CUSTOM_AUTH}
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL}
+management:
+  health:
+    circuitbreakers:
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH}
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - env
+          - info
+          - liquibase
+          - refresh
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES}
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES}
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH}
+    service:
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+  instances:
+    companyService:
+      baseConfig: service
+    userService:
+      baseConfig: service
+    notificationService:
+      baseConfig: service
+gateway:
+  logger: ${GATEWAY_LOGER_URL}
+  locale:
+    enabled: ${GATEWAY_LOCALE_ENABLED}

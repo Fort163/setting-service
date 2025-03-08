@@ -17,6 +17,7 @@ spring:
             allowedOrigins: ${GATEWAY_ALLOWED_ORIGINS}
             allowedMethods: ${GATEWAY_ALLOWED_METHODS}
             allowedHeaders: ${GATEWAY_ALLOWED_HEADERS}
+            allowCredentials: true
       routes:
         - id: company-service
           uri: lb://company-service

@@ -10,6 +10,8 @@ spring:
           custom-auth: ${SECURITY_CUSTOM_AUTH:true}
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
         add-to-simple-url-handler-mapping: true
         cors-configurations:

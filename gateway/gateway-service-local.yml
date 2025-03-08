@@ -13,12 +13,11 @@ spring:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
-        add-to-simple-url-handler-mapping: true
-        cors-configurations:
+        corsConfigurations:
           '[/**]':
-            allowedOrigins: ['http://localhost:3001','http://localhost:3001/']
-            allowedMethods: ${GATEWAY_ALLOWED_METHODS:*}
-            allowedHeaders: ${GATEWAY_ALLOWED_HEADERS:*}
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}

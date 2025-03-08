@@ -15,8 +15,8 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins: ${GATEWAY_ALLOWED_ORIGINS:http://localhost:3001}
-            allowedMethods: ${GATEWAY_ALLOWED_METHODS:"*"}
-            allowedHeaders: ${GATEWAY_ALLOWED_HEADERS:"*"}
+            allowedMethods: ${GATEWAY_ALLOWED_METHODS:*}
+            allowedHeaders: ${GATEWAY_ALLOWED_HEADERS:*}
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}

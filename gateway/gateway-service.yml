@@ -8,6 +8,31 @@ spring:
           client-id: ${SECURITY_CLIENT_ID}
           client-secret: ${SECURITY_CLIENT_SECRET}
           custom-auth: ${SECURITY_CUSTOM_AUTH}
+  cloud:
+    gateway:
+      routes:
+        - id: company-service
+          uri: lb://company-service
+          predicates:
+            - Path=/company/**
+          filters:
+            - RewritePath=/company/(?<path>.*), /$\{path}
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<path>.*), /$\{path}
+        - id: qr-b2b-service
+          uri: lb://qr-b2b-service
+          predicates:
+            - Path=/qr-b2b/**
+          filters:
+            - RewritePath=/qr-b2b/(?<path>.*), /$\{path}
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME}

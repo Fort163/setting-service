@@ -8,16 +8,6 @@ spring:
           client-id: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
           client-secret: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
           custom-auth: ${SECURITY_CUSTOM_AUTH:true}
-  cloud:
-    gateway:
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}

@@ -10,13 +10,6 @@ spring:
           custom-auth: ${SECURITY_CUSTOM_AUTH}
   cloud:
     gateway:
-      globalcors:
-        add-to-simple-url-handler-mapping: true
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: ${GATEWAY_ALLOWED_ORIGINS}
-            allowedMethods: ${GATEWAY_ALLOWED_METHODS}
-            allowedHeaders: ${GATEWAY_ALLOWED_HEADERS}
       routes:
         - id: company-service
           uri: lb://company-service

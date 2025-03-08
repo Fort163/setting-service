@@ -27,7 +27,10 @@ management:
           - info
           - liquibase
           - refresh
+          - gateway
   endpoint:
+    gateway:
+      enabled: true
     health:
       show-details: ${ACTUATOR_HEALTH_VALUES}
     env:

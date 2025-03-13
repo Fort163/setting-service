@@ -1,0 +1,60 @@
+server:
+  port: ${SERVER_PORT:8050}
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
+          client-secret: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
+          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
+  mail:
+    host: ${MAIL_HOST:smtp.yandex.ru}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    port: ${MAIL_PORT:465}
+    protocol: ${MAIL_PROTOCOL:smtps}
+    from: ${MAIL_FROM:quickrecording@yandex.ru}
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/notification}
+    username: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
+    password: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
+  jpa:
+    show-sql: ${JPA_SHOW_SQL:false}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+  liquibase:
+    change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
+management:
+  health:
+    circuitbreakers:
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
+    service:
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
+  instances:
+    database:
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
+gateway:
+  logger: ${GATEWAY_LOGER_URL:true}
+  locale:
+    enabled: ${GATEWAY_LOCALE_ENABLED:true}
+notification:
+  mail: ${NOTIFICATION_MAIL:real}

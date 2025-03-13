@@ -1,0 +1,73 @@
+server:
+  port: ${SERVER_PORT}
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: ${SECURITY_CLIENT_ID}
+          client-secret: ${SECURITY_CLIENT_SECRET}
+          custom-auth: ${SECURITY_CUSTOM_AUTH}
+  mail:
+    host: ${MAIL_HOST}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    port: ${MAIL_PORT}
+    protocol: ${MAIL_PROTOCOL}
+    from: ${MAIL_FROM}
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: ${JPA_SHOW_SQL}
+    database-platform: ${JPA_DATABASE_PLATFORM}
+  liquibase:
+    change-log: ${LIQUIBASE_CHANGE_LOG}
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL}
+management:
+  health:
+    circuitbreakers:
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH}
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES}
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES}
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - env
+          - info
+          - liquibase
+          - refresh
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH}
+    service:
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+  instances:
+    database:
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+gateway:
+  logger: ${GATEWAY_LOGER_URL}
+  locale:
+    enabled: ${GATEWAY_LOCALE_ENABLED}
+notification:
+  mail: ${NOTIFICATION_MAIL}

@@ -20,6 +20,7 @@ spring:
             - qr-b2b
             - eureka
             - gateway
+            - notification
 server:
   port: 8001
 management:

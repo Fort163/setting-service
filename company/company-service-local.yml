@@ -15,7 +15,9 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: localhost:9092,localhost:9093
+          brokers:
+          - localhost:9092
+          - localhost:9093
 eureka:
   instance:
     hostname: localhost

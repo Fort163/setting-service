@@ -1,51 +1,33 @@
-server:
-  port: ${SERVER_PORT:8097}
 spring:
   security:
     oauth2:
       resourceserver:
         opaquetoken:
-          client-id: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
-          client-secret: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
-          custom-auth: ${SECURITY_CUSTOM_AUTH:false}
+          client-id: '{cipher}2cc47a22927889f0a8111703b0a5cd8e52a4e55d954645ef9c86f4e08b866876'
+          client-secret: '{cipher}2cc47a22927889f0a8111703b0a5cd8e52a4e55d954645ef9c86f4e08b866876'
   datasource:
-    url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/test-company}
-    username: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
-    password: '{cipher}c4a458cb70aa73bc577b2713bf4a7c9cf3ae7d080844c11d7fb9e5c9e45ec277'
-  jpa:
-    show-sql: ${JPA_SHOW_SQL:false}
-    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+    url: jdbc:postgresql://127.0.0.1:5497/test-company
+    username: '{cipher}20ec1263aab80c0ef90d2d02f1fe5c1e24ea473193f6e97c4f58cde8ea818b63'
+    password: '{cipher}b8fa94af189ce65c24dc6fc6249eaaaca57868961e382b7899c5d4e621f12a52'
   liquibase:
-    change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093
 eureka:
   instance:
-    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+    hostname: localhost
   client:
     service-url:
-      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
-management:
-  health:
-    circuitbreakers:
-      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
-  endpoint:
-    health:
-      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
-    env:
-      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
-resilience4j.circuitbreaker:
-  configs:
-    default:
-      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
-    service:
-      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
-      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
-      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
-  instances:
-    database:
-      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
-      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
-      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
-gateway:
-  logger: ${GATEWAY_LOGER_URL:true}
-  locale:
-    enabled: ${GATEWAY_LOCALE_ENABLED:true}
+      defaultZone: http://localhost:8761/eureka
+qr-cache:
+  enabled: true
+  redis:
+    server:
+      host: localhost
+      port: 6397
+      user: '{cipher}5e1cb909cdf1d3b4aaca5652948d81b904e42e403c172fc5196e4f5d9c0b6a0f'
+      password: '{cipher}0da01582604a7ee1a905de67091a6f2c7f2917c84810d5f467e958376fe13af0'
+

@@ -1,5 +1,5 @@
 server:
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8097}
 spring:
   security:
     oauth2:
@@ -7,7 +7,7 @@ spring:
         opaquetoken:
           client-id: ${SECURITY_CLIENT_ID}
           client-secret: ${SECURITY_CLIENT_SECRET}
-          custom-auth: ${SECURITY_CUSTOM_AUTH}
+          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
@@ -15,12 +15,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: ${JPA_SHOW_SQL}
-    database-platform: ${JPA_DATABASE_PLATFORM}
+    show-sql: ${JPA_SHOW_SQL:false}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
   liquibase:
     change-log: ${LIQUIBASE_CHANGE_LOG}
-  main:
-    allow-bean-definition-overriding: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${STREAM_KAFKA_PORTS}
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME}
@@ -30,7 +33,7 @@ eureka:
 management:
   health:
     circuitbreakers:
-      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH}
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
   endpoints:
     web:
       exposure:
@@ -42,23 +45,31 @@ management:
           - refresh
   endpoint:
     health:
-      show-details: ${ACTUATOR_HEALTH_VALUES}
+      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
     env:
-      show-values: ${ACTUATOR_ENV_VALUES}
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
 resilience4j.circuitbreaker:
   configs:
     default:
-      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH}
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
     service:
-      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
-      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE}
-      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
   instances:
     database:
-      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
-      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE}
-      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
 gateway:
-  logger: ${GATEWAY_LOGER_URL}
+  logger: ${GATEWAY_LOGER_URL:true}
   locale:
-    enabled: ${GATEWAY_LOCALE_ENABLED}
+    enabled: ${GATEWAY_LOCALE_ENABLED:true}
+qr-cache:
+  enabled: ${QR_CACHE_ENABLED:true}
+  redis:
+    server:
+      host: ${QR_REDIS_SERVER_HOST:localhost}
+      port: ${QR_REDIS_SERVER_PORT:6385}
+      user: ${QR_REDIS_SERVER_USER:user}
+      password: ${QR_REDIS_SERVER_PASSWORD:password}

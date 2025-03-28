@@ -1,0 +1,21 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}1a46c37d46b69dc40c2f3264ac4182d83b2b76294d44f5fe01ad594a591fb9fa'
+          client-secret: '{cipher}1a46c37d46b69dc40c2f3264ac4182d83b2b76294d44f5fe01ad594a591fb9fa'
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: http://host.docker.internal:3001
+            allowedMethods: *
+            allowedHeaders: *
+eureka:
+  instance:
+    hostname: eureka
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka

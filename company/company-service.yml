@@ -19,11 +19,6 @@ spring:
     database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
   liquibase:
     change-log: ${LIQUIBASE_CHANGE_LOG}
-  cloud:
-    stream:
-      kafka:
-        binder:
-          brokers: ${STREAM_KAFKA_PORTS}
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME}

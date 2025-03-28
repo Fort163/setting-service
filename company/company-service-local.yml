@@ -11,9 +11,14 @@ spring:
     password: '{cipher}5f1b30e8dc26c8d723434f7814606f8d8eee9e1a5239100c73897f9d631ad615'
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+          - localhost:9093
 eureka:
-  instance:
-    hostname: localhost
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka

@@ -11,8 +11,8 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins: http://host.docker.internal:3001
-            allowedMethods: *
-            allowedHeaders: *
+            allowedMethods: '*'
+            allowedHeaders: '*'
 eureka:
   instance:
     hostname: eureka

@@ -1,10 +1,10 @@
 server:
-  port: ${EUREKA_SERVER_PORT}
+  port: ${EUREKA_SERVER_PORT:8761}
 eureka:
   instance:
     hostname: ${EUREKA_HOSTNAME}
   client:
-    register-with-eureka: ${EUREKA_REGISTER}
-    fetch-registry: ${EUREKA_FETCH}
+    register-with-eureka: ${EUREKA_REGISTER:false}
+    fetch-registry: ${EUREKA_FETCH:false}
   server:
     wait-time-in-ms-when-sync-empty: ${EUREKA_WAIT_TIME}

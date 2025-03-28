@@ -28,5 +28,5 @@ qr-cache:
     server:
       host: localhost
       port: 6397
-      user: '{cipher}24aef6f69eed41f2fed19d76da20e0865bd9164f88d15748368c8f55c0d7d63b'user - 5e1cb909cdf1d3b4aaca5652948d81b904e42e403c172fc5196e4f5d9c0b6a0f
-      password: '{cipher}79ac1fcb66ce1e7725f383b6b6d3e5907b12bbc68094b2618ae0ee8585eefedd'password - 0da01582604a7ee1a905de67091a6f2c7f2917c84810d5f467e958376fe13af0
+      user: '{cipher}24aef6f69eed41f2fed19d76da20e0865bd9164f88d15748368c8f55c0d7d63b'
+      password: '{cipher}79ac1fcb66ce1e7725f383b6b6d3e5907b12bbc68094b2618ae0ee8585eefedd'

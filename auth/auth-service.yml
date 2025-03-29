@@ -1,40 +1,38 @@
 server:
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8090}
 spring:
   mvc:
-    static-path-pattern: ${MVC_STATIC_PATH_PATTERN}
-  main:
-    allow-bean-definition-overriding: ${ALLOW_BEAN_DEFINITION_OVERRIDING}
+    static-path-pattern: ${MVC_STATIC_PATH_PATTERN:/resources/**}
   security:
     oauth2:
       resourceserver:
         opaquetoken:
           client-id: ${SECURITY_CLIENT_ID}
           client-secret: ${SECURITY_CLIENT_SECRET}
-          custom-auth: ${SECURITY_CUSTOM_AUTH}
+          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
       client:
         registration:
           yandex:
-            client-name: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_NAME}
+            client-name: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_NAME:yandex}
             clientId: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_ID}
             clientSecret: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_SECRET}
             redirectUri: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_REDIRECT_URI}
-            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_AUTH_METHOD}
-            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_AUTH_GRANT_TYPE}
+            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_AUTH_METHOD:client_secret_basic}
+            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_AUTH_GRANT_TYPE:authorization_code}
           vk:
-            client-name: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_NAME}
+            client-name: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_NAME:vk}
             clientId: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_ID}
             clientSecret: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_SECRET}
             redirectUri: ${OAUTH2_CLIENT_REGISTRATION_VK_REDIRECT_URI}
-            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_AUTH_METHOD}
-            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_VK_AUTH_GRANT_TYPE}
+            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_AUTH_METHOD:client_secret_post}
+            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_VK_AUTH_GRANT_TYPE:authorization_code}
           google:
-            client-name: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_NAME}
+            client-name: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_NAME:google}
             clientId: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_ID}
             clientSecret: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_SECRET}
             redirectUri: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_REDIRECT_URI}
-            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_AUTH_METHOD}
-            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_AUTH_GRANT_TYPE}
+            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_AUTH_METHOD:client_secret_basic}
+            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_AUTH_GRANT_TYPE:authorization_code}
             scope:
               - openid
               - email
@@ -44,34 +42,34 @@ spring:
               - https://www.googleapis.com/auth/user.birthday.read
         provider:
           yandex:
-            authorization-uri: ${CLIENT_PROVIDER_YANDEX_AUTH_URI}
-            token-uri: ${CLIENT_PROVIDER_YANDEX_TOKEN_URI}
-            user-info-uri: ${CLIENT_PROVIDER_YANDEX_USER_INFO_URI}
-            user-name-attribute: ${CLIENT_PROVIDER_YANDEX_USER_NAME_ATTRIBUTE}
+            authorization-uri: ${CLIENT_PROVIDER_YANDEX_AUTH_URI:https://oauth.yandex.ru/authorize}
+            token-uri: ${CLIENT_PROVIDER_YANDEX_TOKEN_URI:https://oauth.yandex.ru/token}
+            user-info-uri: ${CLIENT_PROVIDER_YANDEX_USER_INFO_URI:https://login.yandex.ru/info}
+            user-name-attribute: ${CLIENT_PROVIDER_YANDEX_USER_NAME_ATTRIBUTE:login}
           vk:
-            authorization-uri: ${CLIENT_PROVIDER_VK_AUTH_URI}
-            token-uri: ${CLIENT_PROVIDER_VK_TOKEN_URI}
-            user-info-uri: ${CLIENT_PROVIDER_VK_USER_INFO_URI}
-            user-name-attribute: ${CLIENT_PROVIDER_VK_USER_NAME_ATTRIBUTE}
+            authorization-uri: ${CLIENT_PROVIDER_VK_AUTH_URI:https://oauth.vk.com/authorize?revoke=1}
+            token-uri: ${CLIENT_PROVIDER_VK_TOKEN_URI:https://oauth.vk.com/access_token}
+            user-info-uri: ${CLIENT_PROVIDER_VK_USER_INFO_URI:https://api.vk.com/method/users.get?{user_id}&v=5.95&fields=id,domain,photo_id,verified,sex,bdate,city,country,contacts,has_mobile,photo_max,home_town,has_photo&display=popup&lang=ru&access_token=xxxxx}
+            user-name-attribute: ${CLIENT_PROVIDER_VK_USER_NAME_ATTRIBUTE:id}
           google:
-            authorization-uri: ${CLIENT_PROVIDER_GOOGLE_AUTH_URI}
-            token-uri: ${CLIENT_PROVIDER_GOOGLE_TOKEN_URI}
-            user-info-uri: ${CLIENT_PROVIDER_GOOGLE_USER_INFO_URI}
-            user-name-attribute: ${CLIENT_PROVIDER_GOOGLE_USER_NAME_ATTRIBUTE}
+            authorization-uri: ${CLIENT_PROVIDER_GOOGLE_AUTH_URI:https://accounts.google.com/o/oauth2/v2/auth}
+            token-uri: ${CLIENT_PROVIDER_GOOGLE_TOKEN_URI:https://www.googleapis.com/oauth2/v4/token}
+            user-info-uri: ${CLIENT_PROVIDER_GOOGLE_USER_INFO_URI:https://www.googleapis.com/oauth2/v3/userinfo}
+            user-name-attribute: ${CLIENT_PROVIDER_GOOGLE_USER_NAME_ATTRIBUTE:sub}
       authorization-server:
         issuer-url: ${OAUTH2_AUTH_SERVER_ISSUER_URL}
-        introspection-endpoint: ${OAUTH2_AUTH_SERVER_INTROSPECTION_ENDPOINT}
+        introspection-endpoint: ${OAUTH2_AUTH_SERVER_INTROSPECTION_ENDPOINT:/oauth2/token-info}
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: ${JPA_HIBERNATE_DDL_AUTO}
-    show-sql: ${JPA_SHOW_SQL}
-    database-platform: ${JPA_DATABASE_PLATFORM}
+      ddl-auto: ${JPA_HIBERNATE_DDL_AUTO:none}
+    show-sql: ${JPA_SHOW_SQL:false}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
   liquibase:
-    change-log: ${LIQUIBASE_CHANGE_LOG}
+    change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
 eureka:
   instance:
     prefererIpAddress: true
@@ -86,7 +84,7 @@ logging:
 management:
   health:
     circuitbreakers:
-      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH}
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
   endpoints:
     web:
       exposure:
@@ -98,23 +96,31 @@ management:
           - refresh
   endpoint:
     health:
-      show-details: ${ACTUATOR_HEALTH_VALUES}
+      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
     env:
-      show-values: ${ACTUATOR_ENV_VALUES}
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
 resilience4j.circuitbreaker:
   configs:
     default:
-      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH}
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
     service:
-      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
-      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE}
-      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
   instances:
     database:
-      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD}
-      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE}
-      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS}
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
 gateway:
-  logger: ${GATEWAY_LOGER_URL}
+  logger: ${GATEWAY_LOGER_URL:true}
   locale:
-    enabled: ${GATEWAY_LOCALE_ENABLED}
+    enabled: ${GATEWAY_LOCALE_ENABLED:true}
+qr-cache:
+  enabled: ${QR_CACHE_ENABLED:true}
+  redis:
+    server:
+      host: ${QR_REDIS_SERVER_HOST:localhost}
+      port: ${QR_REDIS_SERVER_PORT:6390}
+      user: ${QR_REDIS_SERVER_USER:user}
+      password: ${QR_REDIS_SERVER_PASSWORD:password}

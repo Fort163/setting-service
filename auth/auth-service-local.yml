@@ -1,109 +1,36 @@
-server:
-  port: ${SERVER_PORT:8090}
 spring:
-  mvc:
-    static-path-pattern: ${MVC_STATIC_PATH_PATTERN:/resources/**}
-  main:
-    allow-bean-definition-overriding: ${ALLOW_BEAN_DEFINITION_OVERRIDING:true}
   security:
     oauth2:
       resourceserver:
         opaquetoken:
-          client-id: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
-          client-secret: '{cipher}114c81cc3f2faaa18afaacfa5d9be69ddc92e5f129864fd9f8fd937bcd01030e'
-          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
+          client-id: '{cipher}0cb086ec679bc304fb08f27a48ef5280a73a8ce71b3ae120f53d4e1131dd3c4a'
+          client-secret: '{cipher}f177974159bb389cfe5488b5ce0463a85f1faa7181a75fa85a9ef4e0d85543ab'
       client:
         registration:
           yandex:
-            client-name: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_NAME:yandex}
-            clientId: '{cipher}f157c1af003aec1101c17b2bd47b99417963ba0462eeebe44e67a713aaa543354ae71c032803f866b6317e40a734d891da93dd468ee75a30f05921a911684a52'
-            clientSecret: '{cipher}f9c241a8422ac7a98cfcb089fdb8ac4bda1db8e97cd4cbd8ae8b2474cebdd0b58f23583377baedba742ceb966166a1ec3d9c4231df7b7d789db86bff524d1b5f'
-            redirectUri: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_REDIRECT_URI:http://localhost:8090/login/oauth2/code/yandex}
-            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_CLIENT_AUTH_METHOD:client_secret_basic}
-            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_YANDEX_AUTH_GRANT_TYPE:authorization_code}
+            clientId: '{cipher}3e981ff72391ca512d620a5229dd6651db7ff9bc52cc533669b78a83cfc21191923d7fcc7d37c997c964741c4e3236d51add0a1d36081a100c642d6eac65aeaf'
+            clientSecret: '{cipher}1dc0b08e154edb3ef37bbd5298c1627e965f2299ef2b618f6200e7d2db9bd41adf7945131db8a009d66508e15dce3e5eda0b65dcc40dfb69c0d1b76bc9e0c8a1'
+            redirectUri: http://localhost:8090/login/oauth2/code/yandex
           vk:
-            client-name: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_NAME:vk}
-            clientId: '{cipher}f0e4d2203cedf2c91be17a27bb3df1d64f0321688148c15ac0b860da87f47e34'
-            clientSecret: '{cipher}c69a53ab999ed8efd6265c489e5f142341907d07817b6fd7ef9aa3c988d3845365cac48cfdfbb55d7543ffbb46174dde'
-            redirectUri: ${OAUTH2_CLIENT_REGISTRATION_VK_REDIRECT_URI:http://localhost:8090/login/oauth2/code/vk}
-            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_VK_CLIENT_AUTH_METHOD:client_secret_post}
-            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_VK_AUTH_GRANT_TYPE:authorization_code}
+            clientId: '{cipher}4c00964527d6b6f67038a54614183c3e366a4c564d17359c5585f23b6cab0cbc'
+            clientSecret: '{cipher}11e2aa980d3b5661dc416145a6f27890f20cda0acf685f3b9120923d4161945c0e4636b02b2dd5fe1a0b6df343fe6504'
+            redirectUri: http://localhost:8090/login/oauth2/code/vk
           google:
-            client-name: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_NAME:google}
-            clientId: '{cipher}09f2e969dffec16643fd3d5db94bcb80821d53a16eccb7550eb29341114a15f1d89b2c0ed1506ee51335a12cf8ef750f7798f5687174900c1e4321337e7cf70964eb5e372cbd5f09f42b3adac7477cc15da7c0ee0b29ee04b642e16a44b8b221'
-            clientSecret: '{cipher}ca6062431c17bc62ed5eb48c19499a37a11d361952dd2634156bf8854309e56a5bb119e0f8f67ef03762ed333cc3f3061a6c4a19598d7500835880f86d2cf68e'
-            redirectUri: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_REDIRECT_URI:http://localhost:8090/login/oauth2/code/google}
-            client-authentication-method: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_AUTH_METHOD:client_secret_basic}
-            authorization-grant-type: ${OAUTH2_CLIENT_REGISTRATION_GOOGLE_AUTH_GRANT_TYPE:authorization_code}
-            scope:
-              - openid
-              - email
-              - profile
-              - https://www.googleapis.com/auth/user.phonenumbers.read
-              - https://www.googleapis.com/auth/user.gender.read
-              - https://www.googleapis.com/auth/user.birthday.read
-        provider:
-          yandex:
-            authorization-uri: ${CLIENT_PROVIDER_YANDEX_AUTH_URI:https://oauth.yandex.ru/authorize}
-            token-uri: ${CLIENT_PROVIDER_YANDEX_TOKEN_URI:https://oauth.yandex.ru/token}
-            user-info-uri: ${CLIENT_PROVIDER_YANDEX_USER_INFO_URI:https://login.yandex.ru/info}
-            user-name-attribute: ${CLIENT_PROVIDER_YANDEX_USER_NAME_ATTRIBUTE:login}
-          vk:
-            authorization-uri: ${CLIENT_PROVIDER_VK_AUTH_URI:https://oauth.vk.com/authorize?revoke=1}
-            token-uri: ${CLIENT_PROVIDER_VK_TOKEN_URI:https://oauth.vk.com/access_token}
-            user-info-uri: ${CLIENT_PROVIDER_VK_USER_INFO_URI:https://api.vk.com/method/users.get?{user_id}&v=5.95&fields=id,domain,photo_id,verified,sex,bdate,city,country,contacts,has_mobile,photo_max,home_town,has_photo&display=popup&lang=ru&access_token=xxxxx}
-            user-name-attribute: ${CLIENT_PROVIDER_VK_USER_NAME_ATTRIBUTE:id}
-          google:
-            authorization-uri: ${CLIENT_PROVIDER_GOOGLE_AUTH_URI:https://accounts.google.com/o/oauth2/v2/auth}
-            token-uri: ${CLIENT_PROVIDER_GOOGLE_TOKEN_URI:https://www.googleapis.com/oauth2/v4/token}
-            user-info-uri: ${CLIENT_PROVIDER_GOOGLE_USER_INFO_URI:https://www.googleapis.com/oauth2/v3/userinfo}
-            user-name-attribute: ${CLIENT_PROVIDER_GOOGLE_USER_NAME_ATTRIBUTE:sub}
+            clientId: '{cipher}a5f24dc9015288d9c5e2d9edd64e505fe591596e75a15cc88397eaba8837983fc7b2ecec7d5d5af8e4b532316191cd44f423bf9c2ecfb3ceff85f0378b9da6b22fcfb3467413c4b85f9c49a166aed983244ef92b69f3f6dcd587ba3ac556cd51'
+            clientSecret: '{cipher}20ba18bd802564cabe8244fa7988f194b1c4ec978eb513f6a34315d5c0c84ec241200a5732c264e01756f1432b60d9710316fd7bb34664d2700acab5a4322d8d'
+            redirectUri: http://localhost:8090/login/oauth2/code/google
       authorization-server:
-        issuer-url: ${OAUTH2_AUTH_SERVER_ISSUER_URL:http://localhost:8090}
-        introspection-endpoint: ${OAUTH2_AUTH_SERVER_INTROSPECTION_ENDPOINT:/oauth2/token-info}
+        issuer-url: http://localhost:8090
   datasource:
-    url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/authSso}
-    username: '{cipher}6f1b0b599bd9d7a1149305686dd07c5ed8acbff6202696c881a3a7535f64bd8b'
-    password: '{cipher}12816800abf34bf7dd173d304d2055349a260ba4e92b140ac168eeb263d85153'
-  jpa:
-    hibernate:
-      ddl-auto: ${JPA_HIBERNATE_DDL_AUTO:none}
-    show-sql: ${JPA_SHOW_SQL:false}
-    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
-  liquibase:
-    change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
+    url: jdbc:postgresql://127.0.0.1:5432/auth_sso
+    username: '{cipher}52c64eaa9fa7f006f827c4e703e8beb09ddf23bd8700dfcf1e1f19d84186052d'
+    password: '{cipher}32a7b52ba0251c74800977fbe9782d85e46b60f47f776c0f2e78728543aaa575'
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://localhost:8761/eureka}
+      defaultZone: http://localhost:8761/eureka
 logging:
   level:
     org:
       springframework:
-        security: ${LOGGING_LEVEL_ORG_SPRING_SECURITY:DEBUG}
-management:
-  health:
-    circuitbreakers:
-      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
-  endpoint:
-    health:
-      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
-    env:
-      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
-resilience4j.circuitbreaker:
-  configs:
-    default:
-      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
-    service:
-      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
-      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
-      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
-  instances:
-    database:
-      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
-      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
-      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
-gateway:
-  logger: ${GATEWAY_LOGER_URL:true}
-  locale:
-    enabled: ${GATEWAY_LOCALE_ENABLED:true}
+        security: DEBUG

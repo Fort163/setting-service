@@ -63,8 +63,8 @@ spring:
         introspection-endpoint: ${OAUTH2_AUTH_SERVER_INTROSPECTION_ENDPOINT:/oauth2/token-info}
   datasource:
     url: ${DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/authSso}
-    username: '{cipher}a9525d8f4dde0ae3f684eb5ccaeb10ae8367c1b425b08c1cfcb71bc714c0a4a6'
-    password: '{cipher}a9525d8f4dde0ae3f684eb5ccaeb10ae8367c1b425b08c1cfcb71bc714c0a4a6'
+    username: '{cipher}6f1b0b599bd9d7a1149305686dd07c5ed8acbff6202696c881a3a7535f64bd8b'
+    password: '{cipher}12816800abf34bf7dd173d304d2055349a260ba4e92b140ac168eeb263d85153'
   jpa:
     hibernate:
       ddl-auto: ${JPA_HIBERNATE_DDL_AUTO:none}

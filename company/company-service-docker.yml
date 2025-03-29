@@ -6,7 +6,7 @@ spring:
           client-id: '{cipher}228874efb4c0ba3993e4c0ae5bfbebb92d4c8c086ff46879b7d3244687befd52'
           client-secret: '{cipher}2816be04303c7bc54870f47641cc79ff94af3e7e031203bd1ccdb9eb244baf9e'
   datasource:
-    url: jdbc:postgresql://company-infrastructure-postgres:5497/company
+    url: jdbc:postgresql://company-infrastructure-postgres-1:5497/company
     username: '{cipher}93334182d1af4d08a13e91f0fd1d9275de6269aa5a5513325e36dbf59e37e8af'
     password: '{cipher}a2e7415bb373d250525d76993e010df6c8b4a5e716e10f91518d96a94566e175'
   liquibase:
@@ -15,18 +15,18 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: kafka-cluster-kafka-item-1:9092,kafka-cluster-kafka-item-2:9093
+          brokers: kafka-cluster-kafka-item-1-1:9092,kafka-cluster-kafka-item-2-1:9093
 eureka:
   instance:
     hostname: eureka
   client:
     service-url:
-      defaultZone: http://single-service-eureka:8761/eureka
+      defaultZone: http://single-service-eureka-1:8761/eureka
 qr-cache:
   enabled: true
   redis:
     server:
-      host: company-infrastructure-redis
+      host: company-infrastructure-redis-1
       port: 6397
       user: '{cipher}3f40c21252093eaf20ebc72ca5a6dc9ada3f69f2e2c1a78c0f4f4bc321f3dc81'
       password: '{cipher}d70735f7ad689d30617fc4899d9a6fab20b3c3cc44c0060bd2b557b4e51769c8'

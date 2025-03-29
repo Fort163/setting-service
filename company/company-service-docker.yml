@@ -3,22 +3,30 @@ spring:
     oauth2:
       resourceserver:
         opaquetoken:
-          client-id: '{cipher}ac5c602b7ee9e2e69ce226290be0fb1b73517876b190cb463f48faf3964b463b'
-          client-secret: '{cipher}ac5c602b7ee9e2e69ce226290be0fb1b73517876b190cb463f48faf3964b463b'
+          client-id: '{cipher}228874efb4c0ba3993e4c0ae5bfbebb92d4c8c086ff46879b7d3244687befd52'
+          client-secret: '{cipher}2816be04303c7bc54870f47641cc79ff94af3e7e031203bd1ccdb9eb244baf9e'
   datasource:
-    url: jdbc:postgresql://company-infrastructure-postgres-1:5497/company
-    username: '{cipher}dd1fba81a89fe70699c875ad7a1ae690474a0b620d525cc05d1764ad5503e3aa'
-    password: '{cipher}2979b3095b91fb95631b27a9b0567d257eb95978ba795b01982985b5a49c485e'
+    url: jdbc:postgresql://company-infrastructure-postgres:5497/company
+    username: '{cipher}93334182d1af4d08a13e91f0fd1d9275de6269aa5a5513325e36dbf59e37e8af'
+    password: '{cipher}a2e7415bb373d250525d76993e010df6c8b4a5e716e10f91518d96a94566e175'
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
   cloud:
     stream:
       kafka:
         binder:
-          brokers: localhost:9092,localhost:9093
+          brokers: kafka-cluster-kafka-item-1:9092,kafka-cluster-kafka-item-2:9093
 eureka:
   instance:
     hostname: eureka
   client:
     service-url:
-      defaultZone: http://single-service-eureka-1:8761/eureka
+      defaultZone: http://single-service-eureka:8761/eureka
+qr-cache:
+  enabled: true
+  redis:
+    server:
+      host: company-infrastructure-redis
+      port: 6397
+      user: '{cipher}3f40c21252093eaf20ebc72ca5a6dc9ada3f69f2e2c1a78c0f4f4bc321f3dc81'
+      password: '{cipher}d70735f7ad689d30617fc4899d9a6fab20b3c3cc44c0060bd2b557b4e51769c8'

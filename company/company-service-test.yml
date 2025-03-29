@@ -3,12 +3,12 @@ spring:
     oauth2:
       resourceserver:
         opaquetoken:
-          client-id: '{cipher}2cc47a22927889f0a8111703b0a5cd8e52a4e55d954645ef9c86f4e08b866876'
-          client-secret: '{cipher}2cc47a22927889f0a8111703b0a5cd8e52a4e55d954645ef9c86f4e08b866876'
+          client-id: '{cipher}3224c0b03f1c2cc98332d14ad33e6b9d83d0cf460fd8ed464c9eff60df41193d'
+          client-secret: '{cipher}bfc0b7cf697ff678d5adad7b47f5481c5e521953089340b92d6326eca95334a5'
   datasource:
     url: jdbc:postgresql://127.0.0.1:5497/test-company
-    username: '{cipher}20ec1263aab80c0ef90d2d02f1fe5c1e24ea473193f6e97c4f58cde8ea818b63'
-    password: '{cipher}b8fa94af189ce65c24dc6fc6249eaaaca57868961e382b7899c5d4e621f12a52'
+    username: '{cipher}a4fed5c3f81b8517f3933c3e67c98ed2b2ae326da42711c3ead3683b539ea253'
+    password: '{cipher}fa6dc85354e322a187be312a74e923a41511946878a577720a8b98c4a1124d07'
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
   cloud:
@@ -28,6 +28,6 @@ qr-cache:
     server:
       host: localhost
       port: 6397
-      user: '{cipher}5e1cb909cdf1d3b4aaca5652948d81b904e42e403c172fc5196e4f5d9c0b6a0f'
-      password: '{cipher}0da01582604a7ee1a905de67091a6f2c7f2917c84810d5f467e958376fe13af0'
+      user: '{cipher}3f40c21252093eaf20ebc72ca5a6dc9ada3f69f2e2c1a78c0f4f4bc321f3dc81'
+      password: '{cipher}13d4388bb8b9e5e04b15918e349902097b0a1b764f2de5fb512c3211edc79302'
 

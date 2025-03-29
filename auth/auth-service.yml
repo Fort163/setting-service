@@ -74,7 +74,7 @@ spring:
     change-log: ${LIQUIBASE_CHANGE_LOG}
 eureka:
   instance:
-    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+    prefererIpAddress: true
   client:
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL}

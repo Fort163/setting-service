@@ -124,3 +124,12 @@ qr-cache:
       port: ${QR_REDIS_SERVER_PORT:6390}
       user: ${QR_REDIS_SERVER_USER:user}
       password: ${QR_REDIS_SERVER_PASSWORD:password}
+auth:
+  cors:
+    allowedOrigins: ${AUTH_CORS_ALLOWED_ORIGINS}
+    allowedMethods: ${AUTH_CORS_ALLOWED_METHODS:*}
+    allowedHeaders: ${AUTH_CORS_ALLOWED_HEADERS:*}
+    exposedHeaders: ${AUTH_CORS_EXPOSED_HEADERS:*}
+    allowCredentials: ${AUTH_CORS_ALLOW_CREDENTIALS:true}
+    allowPrivateNetwork: ${AUTH_CORS_ALLOW_PRIVATE_NETWORK}
+    maxAge: ${AUTH_CORS_MAX_AGE}

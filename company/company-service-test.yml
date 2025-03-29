@@ -6,7 +6,7 @@ spring:
           client-id: '{cipher}3224c0b03f1c2cc98332d14ad33e6b9d83d0cf460fd8ed464c9eff60df41193d'
           client-secret: '{cipher}bfc0b7cf697ff678d5adad7b47f5481c5e521953089340b92d6326eca95334a5'
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5497/test-company
+    url: jdbc:postgresql://127.0.0.1:5497/company_test
     username: '{cipher}a4fed5c3f81b8517f3933c3e67c98ed2b2ae326da42711c3ead3683b539ea253'
     password: '{cipher}fa6dc85354e322a187be312a74e923a41511946878a577720a8b98c4a1124d07'
   liquibase:

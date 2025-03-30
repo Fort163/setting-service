@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}fff106744bd402b3eefc6d59fb98f704b2f6a1fd7d24b5834d1291b880321b94'
+          client-secret: '{cipher}b6fe81c4bd3235d104c92454adfeb1db9e2ec0f4cdfa8e92c4717eba2a56049d'
+  mail:
+    username: '{cipher}9f8689dedff6095ebe9e85d06640dd5b4561d92e896df8adcf86f484d38f2cfb'
+    password: '{cipher}4a7643c2dc80770122af1407e5d3ce814b09c859410c43e52dc181ad22ed9ad0da91afd67149327b26326dce9eb5a614'
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5450/notification
+    username: '{cipher}a7b42c6ce44c3630b5db2cf5e7cec77a03ef28274386b1f93b6678daf80a25be'
+    password: '{cipher}28795adb627dbb5c9c44f8873249dd6d1e9114c54dcf092171eac4a697952eb3'
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+notification:
+  mail: real
+qr-cache:
+  redis:
+    server:
+      host: localhost
+      port: 6350
+      user: '{cipher}6193dbc7e8aa072cc3cd56933ae6fcd7c66c0a1929776abfb4de1b5f51608377'
+      password: '{cipher}3552ab1d037ab859841468296bf13c2e97ddb262e236045795e3d5e604088b2c'

@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}918c9d013212946a583e55336d10664b9b62587d755a58183dde35fe4231751f'
+          client-secret: '{cipher}96e22a24ed756d7d2c0381213182aad9a0eb01eeeabc36aa584991d3083ca65c'
+  mail:
+    username: '{cipher}356f95fdaaa36620b7c4da0ac6e134cc58faa379c5e56dfb2cda11afff9fcbb1'
+    password: '{cipher}53cbf3bfbbf7f6b647fea266474e5a7d01bcc4a56b3f69b1d968b2c073c7061b7a0d390016d2a66ed14c880ba8ccc757'
+  datasource:
+    url: jdbc:postgresql://notification-infrastructure-postgres-1:5432/notification
+    username: '{cipher}8a5e040e67a790a2fc73c5a62ef08ef2bbe40ec46313851a3fb7ddf54548910a'
+    password: '{cipher}1441d69577b2e14e8a2a2f2210b42d066fc636e9e2c9463aa910672e5cf5f500'
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:  kafka-cluster-kafka-item-1-1:9092,kafka-cluster-kafka-item-2-1:9093
+eureka:
+  client:
+    service-url:
+      defaultZone: http://single-service-eureka-1:8761/eureka
+notification:
+  mail: real
+qr-cache:
+  redis:
+    server:
+      host: notification-infrastructure-redis-1
+      port: 6379
+      user: '{cipher}da7392970e06d5453e8ebe5fd4cb83cf00b084a9688898d08807cbeb02b49cdd'
+      password: '{cipher}aeacd8255d0352f5d58b3eb68c2f6fb501b5bf16032dd69aaf5c7235a01e7e91'

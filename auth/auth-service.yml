@@ -116,14 +116,6 @@ gateway:
   logger: ${GATEWAY_LOGER_URL:true}
   locale:
     enabled: ${GATEWAY_LOCALE_ENABLED:true}
-qr-cache:
-  enabled: ${QR_CACHE_ENABLED:true}
-  redis:
-    server:
-      host: ${QR_REDIS_SERVER_HOST:localhost}
-      port: ${QR_REDIS_SERVER_PORT:6390}
-      user: ${QR_REDIS_SERVER_USER:user}
-      password: ${QR_REDIS_SERVER_PASSWORD:password}
 auth:
   cors:
     allowedOrigins: ${AUTH_CORS_ALLOWED_ORIGINS}
@@ -139,3 +131,11 @@ auth:
     firstName: ${AUTH_ADMIN_FIRSTNAME}
     lastName: ${AUTH_ADMIN_LASTNAME}
     email: ${AUTH_ADMIN_EMAIL}
+qr-cache:
+  enabled: ${QR_CACHE_ENABLED:true}
+  redis:
+    server:
+      host: ${QR_REDIS_SERVER_HOST}
+      port: ${QR_REDIS_SERVER_PORT}
+      user: ${QR_REDIS_SERVER_USER}
+      password: ${QR_REDIS_SERVER_PASSWORD}

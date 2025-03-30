@@ -43,3 +43,10 @@ auth:
     firstName: Павел
     lastName: Кутяков
     email: front-91@mail.ru
+qr-cache:
+  redis:
+    server:
+      host: auth-infrastructure-redis-1
+      port: 6379
+      user: '{cipher}431bd170715113a1e78bfd6a4ff840aa76b137cdc923cae7c181421d76898c4e'
+      password: '{cipher}0542d3db2ddb813ebad1ecb92731da777972fc302f410c0c9d5f9e07b96edc29'

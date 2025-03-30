@@ -1,0 +1,45 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}5e1d408cd89c80263c3a3e11a1432950d396516763c1b196d456dd311ca8b954'
+          client-secret: '{cipher}00429d8d4b5c453732de299f66fc68d04654945eeeaff1b9de29836c18751e17'
+      client:
+        registration:
+          yandex:
+            clientId: '{cipher}970022543d5401ae5aa9c08a76eead1c55600fa2da67a2b5db8a7a0f5b9ed512e6b3f19b85145e90d4afe1d5d9b7b679c2f475a9157b1c4a550f021003488c6e'
+            clientSecret: '{cipher}223ac7a06b1b888a3142c7ca80f4c3f8dd62425376d4dd0e9eb385e19cc67193b84ffeed95879e45ceaff7d1876d529007adb2e69a1ebb6dfbb76d4fd8aef955'
+            redirectUri: http://localhost:8090/login/oauth2/code/yandex
+          vk:
+            clientId: '{cipher}4e33fe0cd11f2a57b1eb9d6aaae984ee58c0f84f36979478be93f7b6e16e0b99'
+            clientSecret: '{cipher}e09e994048337c3dc6764f9d6ffeca8a5d3d8be80cc45dc1ef07db799f4bf40604ccc7e8f3e87b1f4c04af018e7ae79a'
+            redirectUri: http://localhost:8090/login/oauth2/code/vk
+          google:
+            clientId: '{cipher}2c11808d32dbc570a81217969930967915bfb844e937f718642369393c143caaa18543e5c8a6c0822b12b4cc4ae45480b0de7457b81911b9693d4209da4ce440ec9ce10f26731bf232db9ec59c9ba772b8da93700f7e6337981d5bcd9bd039db'
+            clientSecret: '{cipher}222b0416d6015c2eb00ea0c84aabd3db57d824a635236e15c181a569496dcbd2f8f789ed54fc6fe6d25a7b50a53e1477eb134fc867188f0f1a6fbc22d639eada'
+            redirectUri: http://localhost:8090/login/oauth2/code/google
+      authorization-server:
+        issuer-url: http://localhost:8090
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5490/auth_sso
+    username: '{cipher}630a23ec2d279a9939805d9a06d239917b6fb8fdba43e8f21f55787c767614f2'
+    password: '{cipher}bb74b0caf4264a155d0e584b03833a58efceffa1b6590a53801f8cf756ad1172'
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+auth:
+  cors:
+    allowedOrigins: http://127.0.0.1:3001,http://localhost:3001
+  admin:
+    userName: '{cipher}fb47f5ac255151303af2355d672da181409d145ec477d921dd0ae69d602cd473'
+    password: '{cipher}11c2fff7e8f2f9b509275c40bf322c19bd16eac317d783b575c679726fb7ba5a'
+    firstName: Павел
+    lastName: Кутяков
+    email: front-91@mail.ru

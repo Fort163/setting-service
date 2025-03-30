@@ -23,7 +23,6 @@ eureka:
     service-url:
       defaultZone: http://single-service-eureka-1:8761/eureka
 qr-cache:
-  enabled: true
   redis:
     server:
       host: company-infrastructure-redis-1

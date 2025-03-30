@@ -10,7 +10,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: http://host.docker.internal:3001
+            allowedOrigins: http://host.docker.internal:3001,http://localhost:3001
             allowedMethods: '*'
             allowedHeaders: '*'
 eureka:

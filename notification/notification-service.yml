@@ -73,7 +73,7 @@ gateway:
   locale:
     enabled: ${GATEWAY_LOCALE_ENABLED:true}
 notification:
-  mail: ${NOTIFICATION_MAIL}
+  mail: ${NOTIFICATION_MAIL:fake}
 qr-cache:
   enabled: ${QR_CACHE_ENABLED:true}
   redis:

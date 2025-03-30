@@ -37,3 +37,9 @@ logging:
 auth:
   cors:
     allowedOrigins: http://127.0.0.1:3001,http://localhost:3001
+  admin:
+    userName: '{cipher}09e3468dfc5a3d67a1acd3f5e42e83622b42cb0bd0b28e3cca2d93cee4682a1f'
+    password: '{cipher}4af78bf78de1fb6e0ca28da47856a83db330f1aaa6f664722d378a5544023f94'
+    firstName: Павел
+    lastName: Кутяков
+    email: front-91@mail.ru

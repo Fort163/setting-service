@@ -133,3 +133,9 @@ auth:
     allowCredentials: ${AUTH_CORS_ALLOW_CREDENTIALS:true}
     allowPrivateNetwork: ${AUTH_CORS_ALLOW_PRIVATE_NETWORK}
     maxAge: ${AUTH_CORS_MAX_AGE}
+  admin:
+    userName: ${AUTH_ADMIN_USER}
+    password: ${AUTH_ADMIN_PASSWORD}
+    firstName: ${AUTH_ADMIN_FIRSTNAME}
+    lastName: ${AUTH_ADMIN_LASTNAME}
+    email: ${AUTH_ADMIN_EMAIL}

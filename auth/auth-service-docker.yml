@@ -22,13 +22,13 @@ spring:
       authorization-server:
         issuer-url: http://localhost:8090
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5490/auth_sso
+    url: jdbc:postgresql://auth-infrastructure-postgres-1:5490/auth_sso
     username: '{cipher}630a23ec2d279a9939805d9a06d239917b6fb8fdba43e8f21f55787c767614f2'
     password: '{cipher}bb74b0caf4264a155d0e584b03833a58efceffa1b6590a53801f8cf756ad1172'
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://single-service-eureka-1:8761/eureka
 logging:
   level:
     org:
@@ -36,7 +36,7 @@ logging:
         security: DEBUG
 auth:
   cors:
-    allowedOrigins: http://127.0.0.1:3001,http://localhost:3001
+    allowedOrigins: http://host.docker.internal:3001,http://localhost:3001
   admin:
     userName: '{cipher}fb47f5ac255151303af2355d672da181409d145ec477d921dd0ae69d602cd473'
     password: '{cipher}11c2fff7e8f2f9b509275c40bf322c19bd16eac317d783b575c679726fb7ba5a'

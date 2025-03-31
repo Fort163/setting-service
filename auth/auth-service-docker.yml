@@ -26,6 +26,8 @@ spring:
     username: '{cipher}630a23ec2d279a9939805d9a06d239917b6fb8fdba43e8f21f55787c767614f2'
     password: '{cipher}bb74b0caf4264a155d0e584b03833a58efceffa1b6590a53801f8cf756ad1172'
 eureka:
+  instance:
+    hostname: localhost
   client:
     service-url:
       defaultZone: http://host.docker.internal:8761/eureka/

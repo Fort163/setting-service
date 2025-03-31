@@ -50,6 +50,8 @@ spring:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 eureka:
+  instance:
+    preferIpAddress: true
   client:
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL}

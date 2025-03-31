@@ -72,7 +72,7 @@ spring:
     change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
 eureka:
   instance:
-    prefererIpAddress: true
+    preferIpAddress: true
   client:
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL}

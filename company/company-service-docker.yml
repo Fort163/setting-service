@@ -21,7 +21,7 @@ eureka:
     hostname: localhost
   client:
     service-url:
-      defaultZone: http://single-service-eureka-1:8761/eureka
+      defaultZone: http://host.docker.internal:8761/eureka/
 qr-cache:
   redis:
     server:

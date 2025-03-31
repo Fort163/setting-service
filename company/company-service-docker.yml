@@ -18,7 +18,7 @@ spring:
           brokers: kafka-cluster-kafka-item-1-1:9092,kafka-cluster-kafka-item-2-1:9093
 eureka:
   instance:
-    hostname: eureka
+    hostname: localhost
   client:
     service-url:
       defaultZone: http://single-service-eureka-1:8761/eureka

@@ -33,7 +33,7 @@ spring:
           brokers: ${STREAM_KAFKA_PORTS}
 eureka:
   instance:
-    preferIpAddress: true
+    hostname: ${INSTANCE_HOSTNAME}
   client:
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL}

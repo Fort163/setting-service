@@ -25,6 +25,12 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 notification:
   mail: real
+  ws:
+    host: localhost
+    port: 61613
+    login: '{cipher}ab594dd85eb72432107ddc69c68aa2d9d425c4cbcd09b757c58d4bc5fce40448'
+    password: '{cipher}4ef00724884477a407b78d79be38ff4dd4ede1251f58d81bd80fdc291d256cc8'
+    allowedOrigins: http://localhost:3001
 qr-cache:
   redis:
     server:

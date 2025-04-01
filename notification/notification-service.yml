@@ -74,6 +74,12 @@ gateway:
     enabled: ${GATEWAY_LOCALE_ENABLED:true}
 notification:
   mail: ${NOTIFICATION_MAIL}
+  ws:
+    host: ${NOTIFICATION_RABBIT_HOST}
+    port: ${NOTIFICATION_RABBIT_PORT}
+    login: ${NOTIFICATION_RABBIT_LOGIN}
+    password: ${NOTIFICATION_RABBIT_PASSWORD}
+    allowedOrigins: ${NOTIFICATION_WS_ORIGINS}
 qr-cache:
   enabled: ${QR_CACHE_ENABLED:true}
   redis:

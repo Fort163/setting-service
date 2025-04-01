@@ -19,6 +19,7 @@ spring:
           brokers: localhost:9092,localhost:9093
 eureka:
   client:
+    proxy-host: localhost
     service-url:
       defaultZone: http://localhost:8761/eureka/
 notification:

@@ -21,7 +21,7 @@ eureka:
   client:
     proxy-host: localhost
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/1111
 notification:
   mail: real
 qr-cache:

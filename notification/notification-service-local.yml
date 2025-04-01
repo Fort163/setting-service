@@ -20,6 +20,7 @@ spring:
 eureka:
   client:
     proxyHost: localhost
+    proxy-host: localhost
     service-url:
       defaultZone: http://localhost:8761/eureka/
 notification:

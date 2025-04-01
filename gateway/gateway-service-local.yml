@@ -15,7 +15,7 @@ spring:
             allowedHeaders: '*'
 eureka:
   instance:
-    hostname: localhost
+    hostname: host.docker.internal
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka

@@ -28,7 +28,7 @@ notification:
     port: 61613
     login: '{cipher}ce7fe9f72f2f0bd58d2b516cbd2564c31e736e419e702fa1937d6270423cfdb2'
     password: '{cipher}c3b403b1f51a776678bbb11f498f99da4fbc26e4ae263212b6fd90f9de260d6e'
-    allowedOrigins: http://host.docker.internal:3001
+    allowedOrigins: http://localhost:3001, http://host.docker.internal:3001
 qr-cache:
   redis:
     server:

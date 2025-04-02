@@ -13,7 +13,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: kafka-cluster-kafka-item-1-1:9092,kafka-cluster-kafka-item-2-1:9093
+          brokers: kafka-cluster-kafka-item-1-1:29092,kafka-cluster-kafka-item-2-1:29093
 eureka:
   instance:
     hostname: host.docker.internal

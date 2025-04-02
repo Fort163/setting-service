@@ -1,0 +1,29 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}1769d8f725448bac554621401e5921a1dad39878479c3bb4a1087980b26a7447'
+          client-secret: '{cipher}eafbd97091c0d9808c1ac741f02331ed8ac7681adf8610fb8faa6aac4ffbba61'
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5485/qr_b2b_test
+    username: '{cipher}fe5b9ac8349ff1a8e0b6493c8e1bd28b837fa2c1fba6d5ebcd363a4a4b60a96a'
+    password: '{cipher}747a5b89c6936f9fbf79276b46b071a7fe05d7e44ba0926be2219b68b98c9273'
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093
+eureka:
+  instance:
+    hostname: host.docker.internal
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+qr-cache:
+  redis:
+    server:
+      host: localhost
+      port: 6385
+      user: '{cipher}3f4e6846a5fcb3522a83f675f5f9683461aa99257fb47c150cb9a28e383e04cf'
+      password: '{cipher}16a2adf13762d129506c54f7808b00c15106bff4313df511183d85239f1e7e2f'

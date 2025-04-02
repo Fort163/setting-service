@@ -15,7 +15,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: kafka-cluster-kafka-item-1-1:9092,kafka-cluster-kafka-item-2-1:9093
+          brokers: http://kafka-cluster-kafka-item-1-1:9092, http://kafka-cluster-kafka-item-2-1:9093
 eureka:
   client:
     service-url:

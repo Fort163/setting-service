@@ -20,9 +20,9 @@ spring:
   liquibase:
     change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
   cloud:
-    default:
-      group: qr-b2b-service
     stream:
+      default:
+        group: qr-b2b-service
       kafka:
         binder:
           brokers: ${STREAM_KAFKA_PORTS}

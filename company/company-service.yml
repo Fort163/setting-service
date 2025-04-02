@@ -21,6 +21,8 @@ spring:
     change-log: ${LIQUIBASE_CHANGE_LOG}
   cloud:
     stream:
+      default:
+        group: company-service
       kafka:
         binder:
           brokers: ${STREAM_KAFKA_PORTS}

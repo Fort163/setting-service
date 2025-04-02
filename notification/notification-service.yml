@@ -28,6 +28,8 @@ spring:
     change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
   cloud:
     stream:
+      default:
+        group: notification-service
       kafka:
         binder:
           brokers: ${STREAM_KAFKA_PORTS}

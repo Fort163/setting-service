@@ -53,6 +53,8 @@ management:
 resilience4j.circuitbreaker:
   configs:
     default:
+      ignoreExceptions:
+        - com.quick.recording.gateway.config.error.exeption.NotFoundException
       registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
     service:
       failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}

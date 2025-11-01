@@ -21,6 +21,7 @@ spring:
             - eureka
             - gateway
             - notification
+            - user
 server:
   port: 8001
 management:

@@ -1,0 +1,79 @@
+server:
+  port: ${SERVER_PORT:8070}
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: ${SECURITY_CLIENT_ID}
+          client-secret: ${SECURITY_CLIENT_SECRET}
+          custom-auth: ${SECURITY_CUSTOM_AUTH:true}
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: ${JPA_SHOW_SQL:false}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
+  liquibase:
+    change-log: ${LIQUIBASE_CHANGE_LOG}
+  cloud:
+    stream:
+      default:
+        group: user-service
+      kafka:
+        binder:
+          brokers: ${STREAM_KAFKA_PORTS}
+eureka:
+  instance:
+    hostname: ${INSTANCE_HOSTNAME}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL}
+management:
+  health:
+    circuitbreakers:
+      enabled: ${ACTUATOR_CIRCUITBREAKERS_HEALTH:true}
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - env
+          - info
+          - liquibase
+          - refresh
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_VALUES:ALWAYS}
+    env:
+      show-values: ${ACTUATOR_ENV_VALUES:ALWAYS}
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      ignoreExceptions:
+        - com.quick.recording.gateway.config.error.exeption.NotFoundException
+      registerHealthIndicator: ${RESILIENCE4J_CIRCUITBREAKERS_HEALTH:true}
+    service:
+      failureRateThreshold: ${SERVICE_RESILIENCE4J_FAILURE_RATE_THRESHOLD:50}
+      slidingWindowSize: ${SERVICE_RESILIENCE4J_SLIDING_WINDOW_SIZE:5}
+      minimumNumberOfCalls: ${SERVICE_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
+  instances:
+    database:
+      failureRateThreshold: ${DB_RESILIENCE4J_FAILURE_RATE_THRESHOLD:75}
+      slidingWindowSize: ${DB_RESILIENCE4J_SLIDING_WINDOW_SIZE:4}
+      minimumNumberOfCalls: ${DB_RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS:20}
+gateway:
+  logger: ${GATEWAY_LOGER_URL:true}
+  locale:
+    enabled: ${GATEWAY_LOCALE_ENABLED:true}
+qr-cache:
+  enabled: ${QR_CACHE_ENABLED:true}
+  redis:
+    server:
+      host: ${QR_REDIS_SERVER_HOST}
+      port: ${QR_REDIS_SERVER_PORT}
+      user: ${QR_REDIS_SERVER_USER}
+      password: ${QR_REDIS_SERVER_PASSWORD}

@@ -1,0 +1,29 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}b314a604dcb9cd2fd8bc4c856f781727e33ef700cefce79734ecf2185b5cf4e6'
+          client-secret: '{cipher}1283b8b92b9f99683564b2c9cdfd849a2f94d174045517728fedef7e83b053ee'
+  datasource:
+    url: jdbc:postgresql://user-service-infrastructure-postgres-1:5432/user_service
+    username: '{cipher}3bdc9ed406a4f9a785145b184f73b33e904ccb240dfb0b8897665b0d07382d33'
+    password: '{cipher}68d8be00478b7180ba6842c440ec11e3a41445b6aa53e5addff86e11c9f19b07'
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: kafka-cluster-kafka-item-1-1:29092,kafka-cluster-kafka-item-2-1:29093
+eureka:
+  client:
+    service-url:
+      defaultZone: http://single-service-eureka-1:8761/eureka/
+qr-cache:
+  redis:
+    server:
+      host: user-service-infrastructure-redis-1
+      port: 6379
+      user: '{cipher}8fe285a119ef20c95c3d9f4df766aea350c2927488cf87ac77f6caeaa235bd41'
+      password: '{cipher}53d67b513a6b23126da8af9a83937d5300f66fcf51df1dd01a277c82a69b4bd4'

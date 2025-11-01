@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: '{cipher}ffc1048c380bf63ae6097c0bcd19403d30f8ae0a18974d6a083d10d8f6bc7461'
+          client-secret: '{cipher}b8dc93d87a9bba99c1093d753bd9eba3cfb04f61a6cde27eb62b3c7e3122ba8d'
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5498/user_service_test
+    username: '{cipher}90405dd1666c46c7c28750ff1675a2541c05cf406b67b67a2b83768d4ea0797e'
+    password: '{cipher}aae2d47c755f8522725e635e7e496a059885941f7e1d50d9fa5239d2a108f482'
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093
+eureka:
+  instance:
+    hostname: host.docker.internal
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+qr-cache:
+  redis:
+    server:
+      host: localhost
+      port: 6398
+      user: '{cipher}68c64aba35a879eebff18b0869da71e61f01106ebc5bcc7c6bebe98d1b5e95cc'
+      password: '{cipher}aae2d47c755f8522725e635e7e496a059885941f7e1d50d9fa5239d2a108f482'
+

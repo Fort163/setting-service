@@ -43,6 +43,12 @@ spring:
             - Path=/notification/**
           filters:
             - RewritePath=/notification/(?<path>.*), /$\{path}
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<path>.*), /$\{path}
       discovery:
         locator:
           enabled: true

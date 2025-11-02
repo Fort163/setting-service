@@ -127,7 +127,7 @@ auth:
     maxAge: ${AUTH_CORS_MAX_AGE}
   # Первичная настройка доступов
   permission:
-    # При включении в список будут созданы *_CREATE,*_DELETE,*_EDIT,*_READ доступы
+    # При включении в список будут созданы *_CREATE,*_DELETE,*_PUT,*_PATCH,*_READ доступы
     include: ${PERMISSION_INCLUDE:MAIN}
     # Исключение из списка ресурсов для которых не нужны свои доступы
     exclude: ${PERMISSION_EXCLUDE:audit,Base,SMART,GeocoderObject}

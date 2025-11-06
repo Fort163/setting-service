@@ -70,6 +70,13 @@ spring:
     database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.PostgreSQLDialect}
   liquibase:
     change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db/changelog/db.changelog-master.xml}
+  cloud:
+    stream:
+      default:
+        group: auth-service
+      kafka:
+        binder:
+          brokers: ${STREAM_KAFKA_PORTS}
 eureka:
   instance:
     hostname: ${INSTANCE_HOSTNAME}

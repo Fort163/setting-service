@@ -25,6 +25,11 @@ spring:
     url: jdbc:postgresql://127.0.0.1:5490/auth_sso_test
     username: '{cipher}c7e61649d1d95a4a8baf2dae85d434c98cf1463a934cd086d28dab84faa11ca5'
     password: '{cipher}afef645a3aebc5bc5f4fa8d014c3789137c1f4e9019b8afb0b2390013cb9d8ba'
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093
 eureka:
   instance:
     hostname: host.docker.internal

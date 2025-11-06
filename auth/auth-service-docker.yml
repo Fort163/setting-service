@@ -25,6 +25,11 @@ spring:
     url: jdbc:postgresql://auth-infrastructure-postgres-1:5432/auth_sso
     username: '{cipher}630a23ec2d279a9939805d9a06d239917b6fb8fdba43e8f21f55787c767614f2'
     password: '{cipher}bb74b0caf4264a155d0e584b03833a58efceffa1b6590a53801f8cf756ad1172'
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: kafka-cluster-kafka-item-1-1:29092,kafka-cluster-kafka-item-2-1:29093
 eureka:
   client:
     service-url:

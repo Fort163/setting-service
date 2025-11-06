@@ -149,6 +149,13 @@ auth:
         - ALL_READ
       company-service:
         - ALL_READ
+        - ACTIVITY_ALL
+        - COMPANY_ALL
+        - PROFESSION_ALL
+        - SERVICE_ALL
+        - SCHEDULE_ALL
+        - GEOCODER_ALL
+        - EMPLOYEE_ALL
       part-time-service:
         - ALL_READ
       qr-b2b-service:

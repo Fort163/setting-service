@@ -164,7 +164,7 @@ auth:
         - ALL_READ
       user-service:
         - ALL_READ
-        - ROLE_EDIT
+        - USER_INFO_ALL
   admin:
     userName: ${AUTH_ADMIN_USER}
     password: ${AUTH_ADMIN_PASSWORD}

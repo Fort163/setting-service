@@ -150,6 +150,7 @@ auth:
         - COMPANY_READ
         - USER_INFO_READ
         - USER_INFO_PATCH
+        - AUTH_USER_READ
       auth-service:
         - ALL_READ
       company-service:

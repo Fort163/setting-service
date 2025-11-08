@@ -146,11 +146,13 @@ auth:
     # список необходимых доступов
     configs:
       SIMPLE_USER:
-        - COMPANY_CREATE
         - COMPANY_READ
         - USER_INFO_READ
-        - USER_INFO_PATCH
         - AUTH_USER_READ
+        - ACTIVITY_READ
+        - AUTH_USER_PATCH
+        - NOTIFICATION_MESSAGE_READ
+        - NOTIFICATION_MESSAGE_PATCH
       auth-service:
         - ALL_READ
       company-service:
@@ -166,11 +168,23 @@ auth:
         - ALL_READ
       qr-b2b-service:
         - ALL_READ
+        - COMPANY_CREATE
+        - COMPANY_DELETE
+        - USER_INFO_PATCH
+        - EMPLOYEE_CREATE
+        - EMPLOYEE_DELETE
+        - PROFESSION_CREATE
+        - PROFESSION_DELETE
+        - SERVICE_CREATE
+        - SERVICE_DELETE
+        - NOTIFICATION_MESSAGE_CREATE
       notification-service:
         - ALL_READ
       user-service:
         - ALL_READ
         - USER_INFO_ALL
+        - ROLE_PUT
+        - NOTIFICATION_MESSAGE_CREATE
   admin:
     userName: ${AUTH_ADMIN_USER}
     password: ${AUTH_ADMIN_PASSWORD}
